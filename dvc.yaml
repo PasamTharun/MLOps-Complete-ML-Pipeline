@@ -25,7 +25,7 @@ stages:
     - feature_engineering.max_features
     outs:
     - data/processed
-  
+
   model_building:
     cmd: python src/model_building.py
     deps:
@@ -44,3 +44,10 @@ stages:
     - src/model_evaluation.py
     metrics:
     - reports/metrics.json
+params:
+- dvclive/params.yaml
+metrics:
+- dvclive/metrics.json
+plots:
+- dvclive/plots/metrics:
+    x: step
